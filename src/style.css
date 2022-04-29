@@ -28,11 +28,19 @@ li{
 .weather-app-wrapper{
     margin: 0px auto;      
 }
-.tempDegree{
-    font-size:20 px;
+.weather-temp .tempNum{
+    font-size:40 px;
     color: #740a41;
     font-weight: 800;
 }
-.tempNum{
-    font-size:20 px;
+.weather-temp img{
+    width: 60px;
+    height: 65PX;
+
+}
+
+.units{
+    font-size: 16px;
+    position: relative;
+    top: -13px;
 }
