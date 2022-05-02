@@ -5,10 +5,14 @@ body{
 }
 .weather-app{
     border:1px solid rgb(150, 147, 147);
-    width: 50%;
+    width: 40%;
     padding:20px;
     margin: 30px auto;
     margin-bottom: 0;
+}
+.input-city{
+width: 100%;
+padding: 5px;
 }
 h1{
     font-family: 'Open Sans', sans-serif;
@@ -29,7 +33,7 @@ li{
     margin: 0px auto;      
 }
 .weather-temp .tempNum{
-    font-size:40 px;
+    font-size: 40px;
     color: #740a41;
     font-weight: 800;
 }
@@ -40,7 +44,10 @@ li{
 }
 
 .units{
-    font-size: 16px;
+    font-size: 18px;
     position: relative;
-    top: -13px;
+    top: -18px;
+}
+a{
+    text-decoration: none;
 }
