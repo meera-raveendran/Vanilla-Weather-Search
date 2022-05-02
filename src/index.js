@@ -4,7 +4,7 @@ let city="texas";
 let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
 axios.get(apiUrl).then(showTemperature);
 function showTemperature(response){
-   console.log( response.data);
+   
    let temperature=document.querySelector("#tempElement")
    let date=document.querySelector(".weatherDate");
    let description=document.querySelector(".weatherDesc");
