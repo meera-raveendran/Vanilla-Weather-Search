@@ -23,14 +23,15 @@
             </div>
             <div class="col-3">
                 <input type="submit" value="Search" class=" btn btn-primary w-200 ">
+                <input type="submit" value="Current" class=" btn btn-secondary w-200"id="currentButton">
             </div>
            </div>
         </form>        
         <div class="row">
-            <h1 class="weatherCity">New York</h1>
+            <h1 class="weatherCity"></h1>
             <ul class="weatherList">
-                <li class="weatherDate"Last Updated:>Thursday 17:50</li>
-                <li class="weatherDesc">Clouds</li>
+                <li class="weatherDate"></li>
+                <li class="weatherDesc"></li>
             </ul>
         </div>
         <div class="row">            
@@ -38,9 +39,10 @@
                 <img src=" " alt="cloudy" id="icon">
                 
                   <span class="tempDegree"><strong class="tempNum" id="tempElement">
-                      12</strong>
-                      <span class="units">&#8451
-                        /<a href="#">&#8457</a></span></span> 
+                      </strong>
+                      <span class="units">
+                        <a href="#" class="celsius-link active">&#8451</a>
+                        /<a href="#" class="fahrenhit-link">&#8457</a></span></span> 
             </div>
                 
             <div class="col-6">
@@ -50,6 +52,43 @@
                     <li >wind: <span id="windspeed"></span>Km/h</li>
                 </ul>
             </div>
+            <div class="row weatherDiv">
+                <div class="col">
+                  <div>MON</div>
+                  <div><img src=" " alt=" " id="forecasticonMon" width="70px" class="iconImage"></div>
+                  <div class="monTemp"><span>&#176;</span></div>
+                </div>
+                <div class="col">
+                  <div>TUE</div>
+                  <div><img src=" " alt=" " id="forecasticonTue"  width="70px" class="iconImage"></div>
+                  <div class="tueTemp"><span>&#176;</span></div>
+                </div>
+                <div class="col">
+                  <div>WED</div>
+                  <div><img src=" " alt=" " id="forecasticonWed"  width="70px" class="iconImage"></div>
+                  <div class="wedTemp"><span>&#176;</span></div>
+                </div>
+                <div class="col">
+                  <div>THU</div>
+                  <div><img src=" " alt=" " id="forecasticonThurs"  width="70px" class="iconImage"></div>
+                  <div class="thuTemp"><span>&#176;</span></div>
+                </div>
+                <div class="col">
+                  <div>FRI</div>
+                  <div><img src=" " alt=" " id="forecasticonFri"  width="70px" class="iconImage"></div>
+                  <div class="friTemp"><span>&#176;</span></div>
+                </div>
+                <div class="col">
+                  <div>SAT</div>
+                  <div><img src=" " alt=" " id="forecasticonSat"  width="70px" class="iconImage"></div>
+                  <div class="satTemp"><span>&#176;</span></div>
+                </div>
+                <div class="col">
+                  <div>SUN</div>
+                  <div><img src=" " alt=" " id="forecasticonSun"  width="70px" class="iconImage"></div>
+                  <div class="sunTemp"><span>&#176;</span></div>
+                </div>
+              </div>
         </div>
      </div>
         <small>

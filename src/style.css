@@ -3,16 +3,21 @@ body{
     padding: 0;
     margin: 0;
 }
+
 .weather-app{
     border:1px solid rgb(150, 147, 147);
-    width: 40%;
+    width: 60%;
     padding:20px;
     margin: 30px auto;
     margin-bottom: 0;
+    border-radius: 15px;
+    height: 100%;
+    background: linear-gradient(45deg rgb(53, 60, 246) rgb(64, 232, 83));  
+   
 }
 .input-city{
-width: 100%;
-padding: 5px;
+    width: 100%;
+    padding: 5px;
 }
 h1{
     font-family: 'Open Sans', sans-serif;
@@ -30,7 +35,8 @@ li{
     color: #740a41;
 }
 .weather-app-wrapper{
-    margin: 0px auto;      
+    margin: 0px auto;    
+    
 }
 .weather-temp .tempNum{
     font-size: 40px;
@@ -50,4 +56,15 @@ li{
 }
 a{
     text-decoration: none;
+}
+a.active{
+    cursor: default;
+    color: #000000;
+}
+a.active:hover{
+    text-decoration: none;
+}
+.iconImage{
+    display: block;
+    margin: 0 auto;
 }
