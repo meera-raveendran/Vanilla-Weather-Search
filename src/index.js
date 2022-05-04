@@ -38,7 +38,8 @@ function showTemperature(response){
    let iconElement=document.querySelector("#icon");
 
    h1.innerHTML = response.data.name;
-   date.innerHTML=formatDate(response.data.dt *1000);   
+   let currentDate=formatDate(response.data.dt *1000);  
+   date.innerHTML=`Last Updated:${currentDate}`;    
    temperature.innerHTML=Math.round(response.data.main.temp);
    celsiusvalue = response.data.main.temp
    description.innerHTML=response.data.weather[0].description;
@@ -61,6 +62,7 @@ function getCurrentLocation(position) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=${unit}&lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
     axios.get(apiUrl).then(showTemperature);
   }
+
   function currentButtonFunction(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(getCurrentLocation);
@@ -74,9 +76,9 @@ function weekTemperature(lon, lat) {
   }
 
   function updateIcons(response) {
-    document.querySelector("#forecasticonMon").
+        document.querySelector("#forecasticonMon").
         setAttribute('src', `http://openweathermap.org/img/wn/${response.data.daily[1].weather[0].icon}@2x.png`) 
-    document.querySelector("#forecasticonTue").
+        document.querySelector("#forecasticonTue").
         setAttribute('src', `http://openweathermap.org/img/wn/${response.data.daily[2].weather[0].icon}@2x.png`) 
         document.querySelector("#forecasticonWed").
         setAttribute('src', `http://openweathermap.org/img/wn/${response.data.daily[3].weather[0].icon}@2x.png`) 
@@ -91,7 +93,6 @@ function weekTemperature(lon, lat) {
   }
 
   function showweekTemperature(response) {
-    console.log('response... ', response)
     const weeklyWeather = response.data.daily;
     document.querySelector(".monTemp").innerHTML = `${Math.round(
       weeklyWeather[0].temp.day
@@ -114,7 +115,6 @@ function weekTemperature(lon, lat) {
     document.querySelector(".sunTemp").innerHTML = `${Math.round(
       weeklyWeather[6].temp.day
     )}°C`;
-
 
     updateIcons(response)
   }

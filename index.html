@@ -1,105 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="src/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One&family=Fira+Sans:wght@300&family=Open+Sans:wght@300&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One&family=Fira+Sans:wght@300&family=Open+Sans:wght@300&family=Roboto:wght@100;300&display=swap"
+        rel="stylesheet">
     <title>Vanilla Weather App</title>
 </head>
+
 <body>
     <div class="container">
-      <div class="weather-app-wrapper">
-    <div class="weather-app">        
-        <form id="search-form" class="mb-3">
-          <div class="row">
-            <div class="col-9">
-                <input ty*pe="text" placeholder="Type a City..." autocomplete="off" class="input-city">
-            </div>
-            <div class="col-3">
-                <input type="submit" value="Search" class=" btn btn-primary w-200 ">
-                <input type="submit" value="Current" class=" btn btn-secondary w-200"id="currentButton">
-            </div>
-           </div>
-        </form>        
-        <div class="row">
-            <h1 class="weatherCity"></h1>
-            <ul class="weatherList">
-                <li class="weatherDate"></li>
-                <li class="weatherDesc"></li>
-            </ul>
-        </div>
-        <div class="row">            
-            <div class="col-6 weather-temp">
-                <img src=" " alt="cloudy" id="icon">
-                
-                  <span class="tempDegree"><strong class="tempNum" id="tempElement">
-                      </strong>
-                      <span class="units">
-                        <a href="#" class="celsius-link active">&#8451</a>
-                        /<a href="#" class="fahrenhit-link">&#8457</a></span></span> 
-            </div>
-                
-            <div class="col-6">
-                <ul>
-                    <li >Percipitation:<span id="percipitation"></span></li>
-                    <li>Humidity :<span  id="humidity"></span>%</li>
-                    <li >wind: <span id="windspeed"></span>Km/h</li>
-                </ul>
-            </div>
-            <div class="row weatherDiv">
-                <div class="col">
-                  <div>MON</div>
-                  <div><img src=" " alt=" " id="forecasticonMon" width="70px" class="iconImage"></div>
-                  <div class="monTemp"><span>&#176;</span></div>
+        <div class="weather-app-wrapper">
+            <div class="weather-app">
+                <form id="search-form" class="mb-3">
+                    <div class="row">
+                        <div class="col-9">
+                            <input ty*pe="text" placeholder="Type a City..." autocomplete="off" class="input-city">
+                        </div>
+                        <div class="col-3">
+                            <input type="submit" value="Search" class=" btn btn-primary w-200 ">
+                            <input type="submit" value="Current" class=" btn btn-secondary w-200" id="currentButton">
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <h1 class="weatherCity"></h1>
+                    <ul class="weatherList">
+                        <li class="weatherDate"></li>
+                        <li class="weatherDesc"></li>
+                    </ul>
                 </div>
-                <div class="col">
-                  <div>TUE</div>
-                  <div><img src=" " alt=" " id="forecasticonTue"  width="70px" class="iconImage"></div>
-                  <div class="tueTemp"><span>&#176;</span></div>
-                </div>
-                <div class="col">
-                  <div>WED</div>
-                  <div><img src=" " alt=" " id="forecasticonWed"  width="70px" class="iconImage"></div>
-                  <div class="wedTemp"><span>&#176;</span></div>
-                </div>
-                <div class="col">
-                  <div>THU</div>
-                  <div><img src=" " alt=" " id="forecasticonThurs"  width="70px" class="iconImage"></div>
-                  <div class="thuTemp"><span>&#176;</span></div>
-                </div>
-                <div class="col">
-                  <div>FRI</div>
-                  <div><img src=" " alt=" " id="forecasticonFri"  width="70px" class="iconImage"></div>
-                  <div class="friTemp"><span>&#176;</span></div>
-                </div>
-                <div class="col">
-                  <div>SAT</div>
-                  <div><img src=" " alt=" " id="forecasticonSat"  width="70px" class="iconImage"></div>
-                  <div class="satTemp"><span>&#176;</span></div>
-                </div>
-                <div class="col">
-                  <div>SUN</div>
-                  <div><img src=" " alt=" " id="forecasticonSun"  width="70px" class="iconImage"></div>
-                  <div class="sunTemp"><span>&#176;</span></div>
-                </div>
-              </div>
-        </div>
-     </div>
-        <small>
-            <a href="https://github.com/meera-raveendran/Vanilla-Weather-Search">Open-source code </a>
-            ,by Meera Raveendran
-         </small>
-    </div>
-    </div>
-</div>
-<SCript src="src/index.js"></SCript>
-</body>
-    
+                <div class="row">
+                    <div class="col-6 weather-temp">
+                        <img src=" " alt="cloudy" id="icon">
+                        <span class="tempDegree"><strong class="tempNum" id="tempElement">
+                            </strong>
+                            <span class="units">
+                                <a href="#" class="celsius-link active">&#8451</a>
+                                /<a href="#" class="fahrenhit-link">&#8457</a></span></span>
+                    </div>
 
+                    <div class="col-6">
+                        <ul>
+                            <li>Percipitation:<span id="percipitation"></span></li>
+                            <li>Humidity :<span id="humidity"></span>%</li>
+                            <li>wind: <span id="windspeed"></span>Km/h</li>
+                        </ul>
+                    </div>
+                    <div class="row weatherDiv">
+                        <div class="col">
+                            <div style="text-align: center;">MON</div>
+                            <div><img src=" " alt=" " id="forecasticonMon" width="70px" class="iconImage"></div>
+                            <div  style="text-align: center;" class="monTemp"><span>&#176;</span></div>
+                        </div>
+                        <div class="col">
+                            <div  style="text-align: center;">TUE</div>
+                            <div><img src=" " alt=" " id="forecasticonTue" width="70px" class="iconImage"></div>
+                            <div style="text-align: center;" class="tueTemp"><span>&#176;</span></div>
+                        </div>
+                        <div class="col">
+                            <div style="text-align: center;">WED</div>
+                            <div><img src=" " alt=" " id="forecasticonWed" width="70px" class="iconImage"></div>
+                            <div style="text-align: center;" class="wedTemp"><span>&#176;</span></div>
+                        </div>
+                        <div class="col">
+                            <div style="text-align: center;">THU</div>
+                            <div><img src=" " alt=" " id="forecasticonThurs" width="70px" class="iconImage"></div>
+                            <div style="text-align: center;" class="thuTemp"><span>&#176;</span></div>
+                        </div>
+                        <div class="col">
+                            <div style="text-align: center;">FRI</div>
+                            <div><img src=" " alt=" " id="forecasticonFri" width="70px" class="iconImage"></div>
+                            <div style="text-align: center;" class="friTemp"><span>&#176;</span></div>
+                        </div>
+                        <div class="col">
+                            <div style="text-align: center;">SAT</div>
+                            <div><img src=" " alt=" " id="forecasticonSat" width="70px" class="iconImage"></div>
+                            <div style="text-align: center;" class="satTemp"><span>&#176;</span></div>
+                        </div>
+                        <div class="col">
+                            <div style="text-align: center;">SUN</div>
+                            <div><img src=" " alt=" " id="forecasticonSun" width="70px" class="iconImage"></div>
+                            <div style="text-align: center;" class="sunTemp"><span>&#176;</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <small style="width: 60%;">
+                <a href="https://github.com/meera-raveendran/Vanilla-Weather-Search">Open-source code </a>
+                ,by Meera Raveendran
+            </small>
+        </div>
+    </div>
+    </div>
+    <SCript src="src/index.js"></SCript>
+</body>
 </html>
