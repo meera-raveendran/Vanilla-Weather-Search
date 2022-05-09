@@ -26,6 +26,20 @@ function formatDate(timeStamp){
     return `${currentDay} ${currenthour}:${currentmnt}`
 
 };
+function formatDay(timeStamp){
+  let date= new Date(timeStamp*1000);
+  let day=date.getDay();
+  let days = [
+    "SUN",
+    "MON",
+    "TUES",
+    "WED",
+    "THU",
+    "FRI",
+    "SAT"
+  ];
+  return days[day];
+}
 function showTemperature(response){
    
    let temperature=document.querySelector("#tempElement")
@@ -93,29 +107,31 @@ function weekTemperature(lon, lat) {
   }
 
   function showweekTemperature(response) {
-    const weeklyWeather = response.data.daily;
-    document.querySelector(".monTemp").innerHTML = `${Math.round(
-      weeklyWeather[0].temp.day
-    )}°C`;
-    document.querySelector(".tueTemp").innerHTML = `${Math.round(
-      weeklyWeather[1].temp.day
-    )}°C`;
-    document.querySelector(".wedTemp").innerHTML = `${Math.round(
-      weeklyWeather[2].temp.day
-    )}°C`;
-    document.querySelector(".thuTemp").innerHTML = `${Math.round(
-      weeklyWeather[3].temp.day
-    )}°C`;
-    document.querySelector(".friTemp").innerHTML = `${Math.round(
-      weeklyWeather[4].temp.day
-    )}°C`;
-    document.querySelector(".satTemp").innerHTML = `${Math.round(
-      weeklyWeather[5].temp.day
-    )}°C`;
-    document.querySelector(".sunTemp").innerHTML = `${Math.round(
-      weeklyWeather[6].temp.day
-    )}°C`;
-
+    
+    let forecast=response.data.daily;
+    let forecastElement=document.querySelector("#forecast");
+    
+    let forecastHTML=`<div class="row">`;
+    
+    forecast.forEach(function(forecastDay,index){
+      if(index<6){
+    forecastHTML=forecastHTML+
+    `<div class="col-2">
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+        
+    <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="42"/>
+        <div class="weather-forecast-temperatures">
+            <span class="weather-forecast-temp-max">${Math.round(forecastDay.temp.max)}°</span>
+             <span class="weather-forecast-temp-min">${Math.round(forecastDay.temp.min)}°</span>
+            
+        </div>
+       </div>   
+`;
+      }
+    });
+forecastHTML=forecastHTML+`</div>`;
+forecastElement.innerHTML=forecastHTML;
+    
     updateIcons(response)
   }
 

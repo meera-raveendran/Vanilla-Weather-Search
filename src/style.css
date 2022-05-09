@@ -72,3 +72,25 @@ a.active{
 a.active:hover{
     text-decoration: none;
 }
+.weather-forecast{
+    margin-top: 20px;
+    text-align: center;
+}
+.weather-forecast-date{
+    font-size: 16px;
+    color: #000000;
+    opacity: 0.5;
+}
+.weather-forecast-temperatures{
+    font-size: 14px;
+}
+.weather-forecast-temp-min{
+    opacity:  0.7;
+}
+.gitLink{
+    font-size: 13px;
+    font-weight: 700;
+}
+.gitName{
+    font-weight: 700;
+}
