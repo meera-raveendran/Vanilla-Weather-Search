@@ -32,7 +32,7 @@ function formatDay(timeStamp){
   let days = [
     "SUN",
     "MON",
-    "TUES",
+    "TUE",
     "WED",
     "THU",
     "FRI",
@@ -62,8 +62,7 @@ function showTemperature(response){
    let currentHumid=response.data.main.humidity;
    humidity.innerHTML=`${currentHumid}`;
    let currentWind=Math.round(response.data.wind.speed);
-   windspeed.innerHTML=`${currentWind}`;
-   console.log('appan response ', response)
+   windspeed.innerHTML=`${currentWind}`;  
    iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
    iconElement.setAttribute("alt",response.data.weather[0].description);
    weekTemperature(response.data.coord.lon, response.data.coord.lat);
@@ -85,27 +84,11 @@ function getCurrentLocation(position) {
   
 function weekTemperature(lon, lat) {
     let apiKey = "a2e0cfbfe5d276ae777464db6e6424f7";
-    let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
     axios.get(url).then(showweekTemperature);
   }
 
-  function updateIcons(response) {
-        document.querySelector("#forecasticonMon").
-        setAttribute('src', `http://openweathermap.org/img/wn/${response.data.daily[1].weather[0].icon}@2x.png`) 
-        document.querySelector("#forecasticonTue").
-        setAttribute('src', `http://openweathermap.org/img/wn/${response.data.daily[2].weather[0].icon}@2x.png`) 
-        document.querySelector("#forecasticonWed").
-        setAttribute('src', `http://openweathermap.org/img/wn/${response.data.daily[3].weather[0].icon}@2x.png`) 
-        document.querySelector("#forecasticonThurs").
-        setAttribute('src', `http://openweathermap.org/img/wn/${response.data.daily[4].weather[0].icon}@2x.png`) 
-        document.querySelector("#forecasticonFri").
-        setAttribute('src', `http://openweathermap.org/img/wn/${response.data.daily[5].weather[0].icon}@2x.png`) 
-        document.querySelector("#forecasticonSat").
-        setAttribute('src', `http://openweathermap.org/img/wn/${response.data.daily[6].weather[0].icon}@2x.png`) 
-        document.querySelector("#forecasticonSun").
-        setAttribute('src', `http://openweathermap.org/img/wn/${response.data.daily[7].weather[0].icon}@2x.png`) 
-  }
-
+  
   function showweekTemperature(response) {
     
     let forecast=response.data.daily;
@@ -114,12 +97,12 @@ function weekTemperature(lon, lat) {
     let forecastHTML=`<div class="row">`;
     
     forecast.forEach(function(forecastDay,index){
-      if(index<6){
+      if(index<5){
     forecastHTML=forecastHTML+
-    `<div class="col-2">
+    `<div class="col-2" style="border:2px solid #2FF2E8;margin-left:17px;padding:0;border-radius:25px 0;background-color:#ffffff;box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);">
         <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
         
-    <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="42"/>
+    <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="45"/>
         <div class="weather-forecast-temperatures">
             <span class="weather-forecast-temp-max">${Math.round(forecastDay.temp.max)}°</span>
              <span class="weather-forecast-temp-min">${Math.round(forecastDay.temp.min)}°</span>
@@ -132,8 +115,7 @@ function weekTemperature(lon, lat) {
 forecastHTML=forecastHTML+`</div>`;
 forecastElement.innerHTML=forecastHTML;
     
-    updateIcons(response)
-  }
+     }
 
 function search(city){
     let apiKey="a2e0cfbfe5d276ae777464db6e6424f7"
